@@ -1,7 +1,7 @@
 package com.github.paniclab.diytech.units;
 
 public enum EssenceFeature {
-    LINEAR_DIMENSION("Линейный размер (длина, ширина, высота и т.д.)"),
+    LINEAR("Линейный размер (длина, ширина, высота и т.д.)"),
     SQUARE("Площадь"),
     VOLUME("Объем"),
     DENSITY("Плотность"),

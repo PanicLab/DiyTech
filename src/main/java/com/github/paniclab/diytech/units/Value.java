@@ -33,6 +33,11 @@ public final class Value {
         return new Value(BigDecimal.valueOf(value));
     }
 
+    @NotNull
+    BigDecimal unwrap() {
+        return value;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(value);

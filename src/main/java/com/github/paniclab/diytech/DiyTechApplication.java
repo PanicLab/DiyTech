@@ -2,6 +2,7 @@ package com.github.paniclab.diytech;
 
 import com.github.paniclab.diytech.dimention.Length;
 import com.github.paniclab.diytech.units.Meter;
+import com.github.paniclab.diytech.units.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,9 +14,11 @@ public class DiyTechApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DiyTechApplication.class, args);
 		Length<Meter> length1 = new Length<>(Meter.valueOf(BigDecimal.ONE));
-		length1.unit();
+		length1.value();
 
-		Length<Meter> length2 = Length.valueOf(BigDecimal.TEN, Meter::new);
+		Length<Meter> length2 = Length.valueOf(10, Meter::new);
+		Length<Meter> length3 = length2.multiply(Value.of(2));
+		Length<Meter> length4 = length1.add(length3).divide(Value.of(2));
 	}
 
 }
