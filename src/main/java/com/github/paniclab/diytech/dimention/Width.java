@@ -44,8 +44,15 @@ public final class Width<U extends LinearUnit<U>> extends Dimension<Width<U>, U>
     }
 
     @Override
-    public @NotNull Width<U> add(@NotNull Width<U> other) {
+    @NotNull
+    public Width<U> add(@NotNull Width<U> other) {
         return new Width<>(value().add(other.value()));
+    }
+
+    @Override
+    @NotNull
+    public Width<U> subtract(@NotNull Width<U> other) {
+        return new Width<>(value().subtract(other.value()));
     }
 
     @Override

@@ -45,8 +45,15 @@ public class Length<U extends LinearUnit<U>> extends Dimension<Length<U>, U> {
     }
 
     @Override
-    public @NotNull Length<U> add(@NotNull Length<U> other) {
+    @NotNull
+    public Length<U> add(@NotNull Length<U> other) {
         return new Length<>(value().add(other.value()));
+    }
+
+    @Override
+    @NotNull
+    public Length<U> subtract(@NotNull Length<U> other) {
+        return new Length<>(value().subtract(other.value()));
     }
 
     @Override
