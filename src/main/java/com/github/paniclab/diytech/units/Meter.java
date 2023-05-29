@@ -59,4 +59,9 @@ public final class Meter extends LinearUnit<Meter> {
                 this.value.divide(value.unwrap(), RoundingMode.HALF_UP)
         );
     }
+
+    @Override
+    public String toString() {
+        return "метров: " + value;
+    }
 }

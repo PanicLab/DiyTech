@@ -60,4 +60,9 @@ public class Length<U extends LinearUnit<U>> extends Dimension<Length<U>, U> {
     public Length<U> divide(@NotNull Value value) {
         return new Length<>(value().divide(value));
     }
+
+    @Override
+    public String toString() {
+        return "Длина(" + unit + ")";
+    }
 }
