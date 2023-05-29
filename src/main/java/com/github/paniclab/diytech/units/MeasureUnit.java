@@ -1,9 +1,11 @@
 package com.github.paniclab.diytech.units;
 
+import com.github.paniclab.diytech.Scalable;
+import com.github.paniclab.diytech.Summable;
 import org.jetbrains.annotations.NotNull;
 
 
-public interface MeasureUnit<T extends MeasureUnit<T>> {
+public interface MeasureUnit<T extends MeasureUnit<T>> extends Scalable<T>, Summable<T> {
     @NotNull
     String name();
     @NotNull
@@ -12,10 +14,4 @@ public interface MeasureUnit<T extends MeasureUnit<T>> {
     String description();
     @NotNull
     EssenceFeature feature();
-
-    @NotNull T add(@NotNull T other);
-    @NotNull
-    T multiply(@NotNull Value value);
-    @NotNull
-    T divide(@NotNull Value value);
 }

@@ -31,16 +31,18 @@ public final class Meter extends LinearUnit<Meter> {
         return "м";
     }
 
-    @Override
-    public <U extends LinearUnit<U>> @NotNull U convertTo(@NotNull MeasureUnitConverter<Meter, U> converter) {
-        return converter.back(this);
-    }
-
 
     @Override
     public @NotNull Meter add(@NotNull Meter other) {
         return new Meter(
                 this.value.add(other.value)
+        );
+    }
+
+    @Override
+    public @NotNull Meter subtract(@NotNull Meter other) {
+        return new Meter(
+                this.value.subtract(other.value)
         );
     }
 
