@@ -13,6 +13,10 @@ public final class Meter extends LinearUnit<Meter> {
         this.value = value;
     }
 
+    @Override
+    protected @NotNull BigDecimal value() {
+        return value;
+    }
 
     @NotNull
     public static Meter valueOf(@NotNull BigDecimal value) {

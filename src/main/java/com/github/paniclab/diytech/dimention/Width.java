@@ -1,5 +1,6 @@
 package com.github.paniclab.diytech.dimention;
 
+import com.github.paniclab.diytech.Summable;
 import com.github.paniclab.diytech.units.LinearUnit;
 import com.github.paniclab.diytech.units.Value;
 import org.jetbrains.annotations.NotNull;
@@ -8,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 
 
-public final class Width<U extends LinearUnit<U>> extends Dimension<Width<U>, U> {
+public final class Width<U extends LinearUnit<U>> extends Dimension<Width<U>, U> implements Summable<Width<U>> {
     private final U unit;
     private final Class<U> unitType;
 
@@ -39,30 +40,30 @@ public final class Width<U extends LinearUnit<U>> extends Dimension<Width<U>, U>
 
 
     @Override
-    public @NotNull U value() {
+    public @NotNull U unit() {
         return this.unit;
     }
 
     @Override
     @NotNull
     public Width<U> add(@NotNull Width<U> other) {
-        return new Width<>(value().add(other.value()));
+        return new Width<>(unit().add(other.unit()));
     }
 
     @Override
     @NotNull
     public Width<U> subtract(@NotNull Width<U> other) {
-        return new Width<>(value().subtract(other.value()));
+        return new Width<>(unit().subtract(other.unit()));
     }
 
     @Override
     public @NotNull Dimension<Width<U>, U> multiply(@NotNull Value value) {
-        return new Width<>(value().multiply(value));
+        return new Width<>(unit().multiply(value));
     }
 
     @Override
     public @NotNull Dimension<Width<U>, U> divide(@NotNull Value value) {
-        return new Width<>(value().divide(value));
+        return new Width<>(unit().divide(value));
     }
 
     @Override

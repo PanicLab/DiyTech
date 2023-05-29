@@ -3,16 +3,11 @@ package com.github.paniclab.diytech.units;
 import net.jodah.typetools.TypeResolver;
 import org.jetbrains.annotations.NotNull;
 
-import java.math.BigDecimal;
 
-
-public abstract class LinearUnit<T extends LinearUnit<T>> implements MeasureUnit<T> {
-    @NotNull
-    protected abstract BigDecimal value();
-
+public abstract class SquareUnit<T extends SquareUnit<T>> implements MeasureUnit<T> {
     @Override
     public @NotNull String description() {
-        return "Единица линейной размерности";
+        return "Единица площади";
     }
 
     @NotNull
@@ -24,6 +19,6 @@ public abstract class LinearUnit<T extends LinearUnit<T>> implements MeasureUnit
     @Override
     @NotNull
     public EssenceFeature feature() {
-        return EssenceFeature.LINEAR;
+        return EssenceFeature.SQUARE;
     }
 }

@@ -1,5 +1,6 @@
 package com.github.paniclab.diytech.dimention;
 
+import com.github.paniclab.diytech.Summable;
 import com.github.paniclab.diytech.units.LinearUnit;
 import com.github.paniclab.diytech.units.Value;
 import org.jetbrains.annotations.NotNull;
@@ -8,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 
 
-public class Height<U extends LinearUnit<U>> extends Dimension<Height<U>, U>  {
+public class Height<U extends LinearUnit<U>> extends Dimension<Height<U>, U> implements Summable<Height<U>> {
     private final U unit;
     private final Class<U> unitType;
 
@@ -40,32 +41,32 @@ public class Height<U extends LinearUnit<U>> extends Dimension<Height<U>, U>  {
 
 
     @Override
-    public @NotNull U value() {
+    public @NotNull U unit() {
         return unit;
     }
 
     @Override
     @NotNull
     public Height<U> add(@NotNull Height<U> other) {
-        return new Height<>(value().add(other.value()));
+        return new Height<>(unit().add(other.unit()));
     }
 
     @Override
     @NotNull
     public Height<U> subtract(@NotNull Height<U> other) {
-        return new Height<>(value().subtract(other.value()));
+        return new Height<>(unit().subtract(other.unit()));
     }
 
     @Override
     @NotNull
     public Height<U> multiply(@NotNull Value value) {
-        return new Height<>(value().multiply(value));
+        return new Height<>(unit().multiply(value));
     }
 
     @Override
     @NotNull
     public Height<U> divide(@NotNull Value value) {
-        return new Height<>(value().divide(value));
+        return new Height<>(unit().divide(value));
     }
 
     @Override
