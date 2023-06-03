@@ -37,6 +37,11 @@ public class Square<U extends SquareUnit<U>> extends Dimension<Square<U>, U> imp
     }
 
     @Override
+    public Value divide(@NotNull Dimension<?, U> other) {
+        return unit.divide(other.unit());
+    }
+
+    @Override
     public @NotNull Square<U> divide(@NotNull Value value) {
         return new Square<>(unit().divide(value));
     }

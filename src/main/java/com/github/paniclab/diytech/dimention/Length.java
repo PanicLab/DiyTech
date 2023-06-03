@@ -1,5 +1,6 @@
 package com.github.paniclab.diytech.dimention;
 
+import com.github.paniclab.diytech.Scalable;
 import com.github.paniclab.diytech.Summable;
 import com.github.paniclab.diytech.units.LinearUnit;
 import com.github.paniclab.diytech.units.Value;
@@ -67,6 +68,12 @@ public class Length<U extends LinearUnit<U>> extends Dimension<Length<U>, U> imp
     @NotNull
     public Length<U> divide(@NotNull Value value) {
         return new Length<>(unit().divide(value));
+    }
+
+    @Override
+    @NotNull
+    public Value divide(@NotNull Dimension<?, U> other) {
+        return unit().divide(other.unit());
     }
 
     @Override

@@ -24,6 +24,14 @@ public class DiyTechApplication {
 		Width<Meter> width = Width.valueOf(10, Meter::new);
 		SquareMeter squareMeter = SquareMeter.from(length1, width);
 		SquareMeter squareMeter2 = SquareMeter.from(length2, length2);
+		SquareMeter squareMeter3 = squareMeter2.add(squareMeter2);
+
+		SquareMeter squareMeter4 = length1.unit().multiply(length2.unit());
+
+		Value k = length1.divide(length4);
+		Value k2 = length1.divide(width);
+
+		Value k3 = Meter.valueOf(BigDecimal.TEN).divide(Meter.valueOf(BigDecimal.ONE));
 	}
 
 }

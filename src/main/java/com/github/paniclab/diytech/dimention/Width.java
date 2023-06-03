@@ -67,6 +67,11 @@ public final class Width<U extends LinearUnit<U>> extends Dimension<Width<U>, U>
     }
 
     @Override
+    public Value divide(@NotNull Dimension<?, U> other) {
+        return unit().divide(other.unit());
+    }
+
+    @Override
     public String toString() {
         return "Ширина(" + unit + ")";
     }

@@ -70,6 +70,11 @@ public class Height<U extends LinearUnit<U>> extends Dimension<Height<U>, U> imp
     }
 
     @Override
+    public Value divide(@NotNull Dimension<?, U> other) {
+        return unit().divide(other.unit());
+    }
+
+    @Override
     public String toString() {
         return "Высота(" + unit + ")";
     }

@@ -1,5 +1,6 @@
 package com.github.paniclab.diytech.units;
 
+import com.github.paniclab.diytech.Scalable;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
@@ -13,14 +14,16 @@ public final class Meter extends LinearUnit<Meter> {
         this.value = value;
     }
 
-    @Override
-    protected @NotNull BigDecimal value() {
-        return value;
-    }
 
     @NotNull
     public static Meter valueOf(@NotNull BigDecimal value) {
         return new Meter(value);
+    }
+
+
+    @Override
+    protected @NotNull BigDecimal value() {
+        return value;
     }
 
     @Override
@@ -63,6 +66,13 @@ public final class Meter extends LinearUnit<Meter> {
     public Meter divide(@NotNull Value value) {
         return new Meter(
                 this.value.divide(value.unwrap(), RoundingMode.HALF_UP)
+        );
+    }
+
+    @Override
+    public @NotNull SquareMeter multiply(@NotNull Meter other) {
+        return new SquareMeter(
+                this.value.multiply(other.value)
         );
     }
 

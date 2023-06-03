@@ -21,9 +21,16 @@ public final class SquareMeter extends SquareUnit<SquareMeter> {
         return new SquareMeter(value);
     }
 
+
     @NotNull
     public static <U extends Dimension<U, Meter> & Summable<U>, V extends Dimension<V, Meter> & Summable<V>> SquareMeter from(@NotNull U length, V width) {
         return new SquareMeter(length.unit().value().multiply(width.unit().value()));
+    }
+
+
+    @Override
+    protected @NotNull BigDecimal value() {
+        return this.value;
     }
 
     @Override
