@@ -34,6 +34,11 @@ public final class SquareMeter extends SquareUnit<SquareMeter> {
     }
 
     @Override
+    public @NotNull Class<SquareMeter> getUnitType() {
+        return SquareMeter.class;
+    }
+
+    @Override
     public @NotNull String name() {
         return "метр квадратый";
     }
